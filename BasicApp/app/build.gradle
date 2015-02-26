@@ -27,7 +27,6 @@ android {
         release {
             buildConfigField "boolean", "USE_CRASHLYTICS", "true"
             buildConfigField "boolean", "USE_ANALYTICS", "true"
-            runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
