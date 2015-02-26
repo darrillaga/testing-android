@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    style="@style/Base.ContainerWithoutPadding">
+
+    <RelativeLayout
+        style="@style/Base.ContainerWithoutPadding"
+        android:background="@color/grey_background">
+
+            <FrameLayout
+            android:id="@+id/container"
+            style="@style/Base.ContainerWithoutPadding"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/background_image"
+                style="@style/Base.ContainerWithoutPadding"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+            <RelativeLayout
+                android:id="@+id/user_container"
+                style="@style/Base.ContainerWithoutPadding"
+                android:background="@color/white"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom">
+
+                <TextView
+                    android:id="@+id/user_name"
+                    style="@style/Base.Wrapper.FullWidth"
+                    android:layout_marginLeft="@dimen/xxxxxlarge_margin"
+                    android:textColor="@color/text_darken"
+                    android:textSize="@dimen/xlarge_text"/>
+
+                <TextView
+                    android:id="@+id/user_alias"
+                    style="@style/Base.Wrapper.FullWidth"
+                    android:layout_alignLeft="@id/user_name"
+                    android:textSize="@dimen/small_text"
+                    android:layout_below="@+id/user_name"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_margin="@dimen/medium_margin"
+                android:layout_width="@dimen/image_thumbnail_large"
+                android:layout_height="@dimen/image_thumbnail_large"
+                android:layout_gravity="bottom"
+                android:transitionName="@string/image_profile_transition"/>
+
+
+        </FrameLayout>
+
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_tweet"
+            android:layout_below="@+id/container"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            card_view:cardCornerRadius="4dp"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin_21">
+
+            <LinearLayout
+                style="@style/Base.Container"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Base.Wrapper"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/count_tweets"
+                        style="@style/Base.ContainerWithoutPadding"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium_text"/>
+
+                    <TextView
+                        android:id="@+id/tweets"
+                        style="@style/Base.ContainerWithoutPadding"
+                        android:text="@string/tweets_caps"
+                        android:textSize="@dimen/small_text"/>
+
+                </LinearLayout>
+
+                <View
+                    style="@style/Base.Wrapper.FullWidth"
+                    android:layout_width="@dimen/unity"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:background="@color/gray"/>
+
+                <LinearLayout
+                    style="@style/Base.Wrapper"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/count_following"
+                        style="@style/Base.ContainerWithoutPadding"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium_text"/>
+
+                    <TextView
+                        android:id="@+id/following"
+                        style="@style/Base.ContainerWithoutPadding"
+                        android:text="@string/following_caps"
+                        android:textSize="@dimen/small_text"/>
+
+                </LinearLayout>
+
+                <View
+                    style="@style/Base.Wrapper.FullWidth"
+                    android:layout_width="@dimen/unity"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:background="@color/gray"/>
+
+                <LinearLayout
+                    style="@style/Base.Wrapper"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/count_followers"
+                        style="@style/Base.ContainerWithoutPadding"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/medium_text"/>
+
+                    <TextView
+                        android:id="@+id/followers"
+                        style="@style/Base.ContainerWithoutPadding"
+                        android:text="@string/followers_caps"
+                        android:textSize="@dimen/small_text"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_tweet"
+            card_view:cardCornerRadius="4dp"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin_21">
+
+            <LinearLayout
+                style="@style/Base.Wrapper"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/description_title"
+                    style="@style/Base.Container.SmallPadding"
+                    android:text="@string/description_title"
+                    android:textSize="@dimen/xlarge_text"
+                    android:textColor="@color/text_darken"/>
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/Base.Container.SmallPadding"/>
+
+            </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_website"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_description"
+            card_view:cardCornerRadius="4dp"
+            android:background="@color/white"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin_21"
+            android:layout_marginBottom="@dimen/small_margin_21">
+
+            <LinearLayout
+                style="@style/Base.Wrapper"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/website_title"
+                    style="@style/Base.Container.SmallPadding"
+                    android:textSize="@dimen/xlarge_text"
+                    android:text="@string/website_title"
+                    android:textColor="@color/text_darken"/>
+
+                <TextView
+                    android:id="@+id/website"
+                    style="@style/Base.Container.SmallPadding"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</ScrollView>

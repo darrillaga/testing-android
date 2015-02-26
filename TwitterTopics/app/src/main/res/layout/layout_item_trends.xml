@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    style="@style/Base.Wrapper.FullWidth.FullPadded">
+
+    <TextView
+        android:id="@+id/sharp"
+        style="@style/Base.Wrapper"
+        android:layout_width="@dimen/image_thumbnail_medium"
+        android:layout_height="@dimen/image_thumbnail_medium"
+        android:gravity="center"
+        android:background="@drawable/round"
+        android:text="@string/sharp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/xxlarge_text"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_marginLeft="@dimen/medium_margin">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/Base.Wrapper"
+            android:textSize="@dimen/xlarge_text"
+            android:textColor="@color/text_darken"/>
+
+        <TextView
+            android:id="@+id/tweets_count_label"
+            style="@style/Base.Wrapper"
+            android:text="@string/tweets_about"
+            android:textColor="@color/grey_txt"
+            android:layout_marginTop="@dimen/xsmall_margin"/>
+
+        <View
+            style="@style/Base.Wrapper"
+            android:layout_height="@dimen/unity"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="@color/gray"/>
+
+    </LinearLayout>
+
+</LinearLayout>

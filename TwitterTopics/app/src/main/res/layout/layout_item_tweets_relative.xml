@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/Base.ContainerWithoutPadding">
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/image_thumbnail_medium"
+        android:layout_height="@dimen/image_thumbnail_medium"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:gravity="center"
+        android:transitionName="@string/image_profile_transition"/>
+
+    <TextView
+        android:id="@+id/user_name"
+        style="@style/Base.Wrapper"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_toRightOf="@+id/profile_image"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:textSize="@dimen/large_text"
+        android:textColor="@color/text_darken"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/user_alias"
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_alignBottom="@+id/user_name"
+        android:layout_toRightOf="@+id/user_name"
+        android:layout_marginRight="@dimen/medium_margin"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_alignLeft="@+id/user_name"
+        android:layout_below="@+id/user_name"
+        android:layout_marginTop="@dimen/xsmall_margin"
+        android:textSize="@dimen/small_text"
+        android:layout_marginRight="@dimen/medium_margin"/>
+    <View
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_alignLeft="@+id/text"
+        android:layout_below="@+id/text"
+        android:layout_height="@dimen/unity"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:background="@color/gray"
+        android:layout_marginRight="@dimen/medium_margin"/>
+
+</RelativeLayout>

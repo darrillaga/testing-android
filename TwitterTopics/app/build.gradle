@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: 'crashlytics'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.0"
+
+    defaultConfig {
+        applicationId "com.mooveit.twittertopics"
+        testInstrumentationRunner "com.mooveit.android.testing.InstrumentationTestRunner"
+
+        minSdkVersion 10
+        targetSdkVersion 21
+        versionCode 1000000
+        versionName "1.0.0"
+
+        buildConfigField "boolean", "USE_CRASHLYTICS", "true"
+        buildConfigField "boolean", "USE_VOLLEY", "true"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "USE_CRASHLYTICS", "false"
+            buildConfigField "boolean", "USE_VOLLEY", "false"
+        }
+
+        release {
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/ASL2.0'
+        exclude 'LICENSE.txt'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+
+    compile fileTree(dir: 'libs', include: ['*.jar'], exclude: ['test/*.*']);
+
+    // Android libs
+    compile 'com.google.android.gms:play-services-base:6.5.87'
+    compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.android.support:recyclerview-v7:21.0.3'
+    compile 'com.android.support:cardview-v7:21.0.3'
+
+    // Other libs
+    compile 'com.rengwuxian.materialedittext:library:1.7.1'
+    compile 'com.crashlytics.android:crashlytics:1.+'
+
+    // Networking
+    compile 'com.octo.android.robospice:robospice:1.4.14'
+    compile 'com.octo.android.robospice:robospice-spring-android:1.4.14'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.4'
+    compile 'com.nineoldandroids:library:2.4.0+'
+    compile 'com.squareup.picasso:picasso:2.4.0'
+
+    // Test Libs
+    androidTestCompile fileTree(dir: 'libs/test', include: ['*.jar'])
+
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.0'
+
+    androidTestCompile 'com.squareup.okhttp:mockwebserver:2.0.0'
+
+    androidTestCompile('org.mockito:mockito-core:1.9.5') {
+        exclude module: 'hamcrest-core'
+    }
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.0'
+    androidTestCompile('com.google.dexmaker:dexmaker-mockito:1.0') {
+        exclude module: 'hamcrest-core'
+    }
+}
+
+apply plugin: 'idea'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+

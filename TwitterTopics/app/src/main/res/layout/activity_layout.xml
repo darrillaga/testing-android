@@ -1,0 +1,5 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Base.ContainerWithoutPadding"
+    android:id="@+id/container">
+
+</RelativeLayout>

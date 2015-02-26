@@ -9,3 +9,8 @@ load() {
  source "$TMP_FILE"
 }; load
 
+cd ./TwitterTopics
+
+run ./gradlew modules:unit-tests:test
+run ./gradlew modules:robolectric-tests:test
+run ./gradlew app:connectedAndroidTest

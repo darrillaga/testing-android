@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="fuchsia">#FF00FF</color>
+    <color name="red">#FF0000</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="gray">#808080</color>
+    <color name="olive">#808000</color>
+    <color name="purple">#800080</color>
+    <color name="maroon">#800000</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="lime">#00FF00</color>
+    <color name="teal">#008080</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="navy">#000080</color>
+    <color name="black">#000000</color>
+    <color name="grey_txt">#757575</color>
+    <color name="spinner_background">#B2B2B2</color>
+    <color name="text_darken">#212121</color>
+    <color name="grey_background">#E5E5E5</color>
+    <color name="action_bar_trend">#2196F3</color>
+    <color name="coral">#EF5350</color>
+    <color name="coral_darken">#EC407A</color>
+    <color name="purple_light">#AB47BC</color>
+    <color name="purple_darken">#7E57C2</color>
+    <color name="blue_darken">#5C6BC0</color>
+    <color name="blue_light">#42A5F5</color>
+    <color name="green_darken">#26A69A</color>
+    <color name="green_light">#66BB6A</color>
+</resources>

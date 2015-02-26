@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/Base.ContainerWithoutPadding">
+
+    <TextView
+        android:id="@+id/sharp"
+        android:layout_width="@dimen/image_thumbnail_medium"
+        android:layout_height="@dimen/image_thumbnail_medium"
+        android:background="@drawable/round"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/xxlarge_text"
+        android:text="@string/sharp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:transitionName="@string/actionbar_transition"/>
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_toRightOf="@+id/sharp"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_marginRight="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:textSize="@dimen/medium_text"
+        android:textColor="@color/text_darken"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/tweets_count_label"
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_alignLeft="@+id/name"
+        android:layout_marginRight="@dimen/medium_margin"
+        android:layout_below="@+id/name"
+        android:text="@string/tweets_about"
+        android:layout_marginTop="@dimen/xsmall_margin"
+        android:textSize="@dimen/small_text"/>
+
+    <View
+        style="@style/Base.Wrapper.FullWidth"
+        android:layout_alignLeft="@+id/tweets_count_label"
+        android:layout_below="@+id/tweets_count_label"
+        android:layout_height="@dimen/unity"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginRight="@dimen/medium_margin"
+        android:background="@color/gray"/>
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mooveit.twittertopics" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".Application"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/global_tracker" />
+        <activity
+            android:name=".ui.activities.trends.TrendsActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.tweets.TweetsActivity"/>
+        <activity
+            android:name=".ui.activities.user.UserDetailActivity"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="7e1bdd7bb7787ff09ef1f15245f30bd5886c924c"/>
+
+        <service android:name=".networking.services.NetworkingService"
+            android:exported="false" />
+    </application>
+</manifest>
