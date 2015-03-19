@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 public abstract class BaseRequest<T> extends SpringAndroidSpiceRequest<T> {
 
-    private static final String TAG = "com.mooveit.bancard.networking.requests.BaseRequest";
+    private static final String TAG = "com.mooveit.android.networking.requests.BaseRequest";
 
     public BaseRequest(Class<T> clazz) {
         super(clazz);
