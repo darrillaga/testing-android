@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Blue -->
+    <color name="blue">#00377C</color>
+    <color name="blue_dark">#002C64</color>
+    <color name="blue_extra_dark">#00234f</color>
+    <color name="sky_blue_dark">#0078B8</color>
+    <color name="sky_blue">#0086CD</color>
+    <color name="sky_blue_soft">#D4E0F2</color>
+    <color name="sky_blue_grey">#7f9BBD</color>
+    <!-- Grey -->
+    <color name="grey_dark">#333333</color>
+    <color name="grey">#4D4D4D</color>
+    <color name="grey_smoke">#757575</color>
+    <color name="grey_lighten">#F9F9F9</color>
+    <color name="grey_soft">#EFEFEF</color>
+    <color name="grey_light_smoke">#A4A4A4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <!-- Messages -->
+    <color name="green">#5CB85C</color>
+    <color name="green_darker">#499149</color>
+    <color name="yellow">#F0AD4E</color>
+    <color name="red">#D9534F</color>
+    <color name="red_error">#E7492E</color>
+    <!-- App colors -->
+    <color name="app_background">@color/grey_lighten</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_grey">#88EFEFEF</color>
+    <color name="transparent_black">#BB000000</color>
+
+    <!-- Custom -->
+    <color name="analysis_statisics_sky_blue">#BFDEEE</color>
+
+</resources>

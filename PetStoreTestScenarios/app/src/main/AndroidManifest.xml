@@ -1,0 +1,33 @@
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mooveit.petstoretestscenarios">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".Application"
+        tools:replace="android:name"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.mooveit.petstoretestscenarios.activities.pets.PetsActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mooveit.petstoretestscenarios.activities.pet.PetActivity"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1a9992309be4574c3235091c58ffc33b58a6addd" />
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

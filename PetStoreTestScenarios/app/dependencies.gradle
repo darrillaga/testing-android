@@ -1,0 +1,78 @@
+project.ext.play_services_version = "7.0.0"
+project.ext.android_support_version = "22.2.1"
+project.ext.robospice_version = "1.4.14"
+project.ext.android_test_support_version = "0.3"
+project.ext.android_test_support_espresso_version = "2.2"
+project.ext.square_okhttp_version = "2.2.0"
+project.ext.google_dexmaker_version = "1.1"
+
+dependencies {
+    compile fileTree(include: ["*.jar"], exclude: ["test/*.*"], dir: "libs")
+
+    compile "java8:streamsupport:1.2.1"
+
+    // Android libs
+    compile "com.google.android.gms:play-services-base:$play_services_version"
+
+    compile "com.android.support:support-v4:$android_support_version"
+    compile "com.android.support:appcompat-v7:$android_support_version"
+    compile "com.android.support:recyclerview-v7:$android_support_version"
+    compile "com.android.support:cardview-v7:$android_support_version"
+
+    //Other libs
+    compile "com.rengwuxian.materialedittext:library:1.7.1"
+    compile "com.melnykov:floatingactionbutton:1.3.0"
+
+    //Networking
+    compile "com.octo.android.robospice:robospice:$robospice_version"
+    compile "com.octo.android.robospice:robospice-spring-android:$robospice_version"
+
+    compile "com.fasterxml.jackson.core:jackson-databind:2.4.4"
+    compile "com.mooveit.bancard:mobile-security-android:3.0.1"
+    compile "com.nineoldandroids:library:2.4.0"
+    compile "com.squareup.picasso:picasso:2.5.2"
+
+    compile project(':modules:networkinglibrary')
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.1@aar') {
+        transitive = true;
+    }
+
+    debugCompile project(':modules:testblankactivity')
+
+    //Test libs
+    androidTestCompile fileTree(include: ["*.jar"], dir: "libs/test/androidTest")
+
+    //Espresso
+    androidTestCompile "com.android.support.test:runner:$android_test_support_version"
+    androidTestCompile "com.android.support.test:rules:$android_test_support_version"
+
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$android_test_support_espresso_version") {
+        exclude group: "javax.inject"
+    }
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$android_test_support_espresso_version"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$android_test_support_espresso_version") {
+        exclude group: "com.android.support", module: "appcompat"
+        exclude group: "com.android.support", module: "support-v4"
+        exclude module: "recyclerview-v7"
+    }
+    androidTestCompile "com.android.support.test.uiautomator:uiautomator-v18:2.1.1"
+
+    androidTestCompile("org.mockito:mockito-core:1.9.5") {
+        exclude module: "hamcrest-core"
+    }
+
+    androidTestCompile project(":modules:testlibrary")
+
+    // Unit Test Libs
+    androidTestCompile fileTree(include: ["*.jar"], dir: "libs/test/unitTest")
+
+    testCompile project(":modules:testlibrary")
+    testCompile "junit:junit:4.12"
+    testCompile "de.bechte.junit:junit-hierarchicalcontextrunner:4.12.0"
+    testCompile "org.mockito:mockito-all:1.9.5"
+    testCompile "org.hamcrest:hamcrest-all:1.3"
+    testCompile("com.squareup:fest-android:1.0.8") {
+        exclude module: "support-v4"
+    }
+}

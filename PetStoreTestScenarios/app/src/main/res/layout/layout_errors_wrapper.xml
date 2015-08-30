@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/errors_wrapper"
+    style="@style/Base.Wrapper.FullWidth"
+    android:background="@color/red"
+    android:visibility="gone"
+    android:minHeight="@dimen/large_size">
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_gravity="center"
+        style="@style/Base.Wrapper"
+        android:padding="@dimen/medium_spacing"
+        android:textColor="@color/white"/>
+
+</FrameLayout>

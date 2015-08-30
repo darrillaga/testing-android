@@ -1,0 +1,111 @@
+apply plugin: 'jacoco'
+
+project.ext.jacocoVersion = '0.7.5.201505241946'
+
+android {
+    jacoco { version = "$jacocoVersion" }
+}
+
+jacoco { toolVersion = "$jacocoVersion" }
+
+afterEvaluate { iterateVariants(this.&fixJacocoAndroidTest) }
+
+def iterateVariants(func) {
+    if (project.android.productFlavors.size() > 0) {
+        project.android.productFlavors.each { f ->
+            iterateBuildTypes(f.name, func)
+        }
+    } else {
+        iterateBuildTypes('', func)
+    }
+}
+
+def iterateBuildTypes(String flavor, func) {
+    project.android.buildTypes.each { b ->
+        func(flavor, b.name);
+    }
+}
+
+def createJacocoAgentTask(String dexAndroidTestTaskName, String flavor, String buildType) {
+    def preDexAndroidTestTaskName = "preDex${flavor}${buildType}AndroidTest"
+    def jacocoAgentTaskName = "fixJacocoAgentAndroidTest${flavor}${buildType}"
+
+    project.task(jacocoAgentTaskName, type: Copy, dependsOn: [preDexAndroidTestTaskName]) {
+        group = 'Workaround'
+        description = "Fix Jacoco Agent instrumentation for ${dexAndroidTestTaskName}."
+
+        def src = "${project.buildDir}/intermediates/pre-dexed/${flavor}/${buildType}"
+        def dst = "${project.buildDir}/intermediates/pre-dexed/androidTest/${flavor}/${buildType}"
+
+        from(src) { include '**/jacocoagent-*.jar' }
+        into dst
+    }
+
+    tasks.getByName(dexAndroidTestTaskName).dependsOn jacocoAgentTaskName
+}
+
+def fixJacocoAndroidTest(String f, String b) {
+    def flavor = f.capitalize()
+    def buildType = b.capitalize()
+
+    if ("Release" == buildType) return; // exclude releases
+
+    def before = "dex${flavor}${buildType}AndroidTest"
+
+    createJacocoAgentTask(before, flavor, buildType)
+
+    createFixJacocoAndroidTestTask(before, flavor, buildType)
+}
+
+def createFixJacocoAndroidTestTask(String dexAndroidTestTaskName, String flavor, String buildType) {
+    def after = "instrument${flavor}${buildType}"
+    def taskName = "fixJacocoAndroidTest${flavor}${buildType}"
+
+    project.task(taskName, type: Copy, dependsOn: [after]) {
+        group = 'Workaround'
+        description = "Fix Jacoco offline instrumentation for instrument${flavor}${buildType}."
+
+        def src = "${project.buildDir}/intermediates/coverage-instrumented-classes/${flavor}/${buildType}"
+        def dst = "${project.buildDir}/intermediates/classes/androidTest/${flavor}/${buildType}"
+
+        from src
+        into dst
+    }
+
+    tasks.getByName(dexAndroidTestTaskName).dependsOn taskName
+}
+
+task jacocoTestReport(type:JacocoReport, dependsOn: ["clean", "testStagingDebug", "connectedAndroidTestStagingDebug"]) {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    classDirectories = fileTree(
+            dir: "${buildDir}/intermediates/classes/staging/debug",
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*']
+    )
+
+    sourceDirectories = files("${buildDir.parent}/src/main/java")
+    additionalSourceDirs = files([
+            "${buildDir}/generated/source/buildConfig/debug",
+            "${buildDir}/generated/source/r/debug"
+    ])
+
+    executionData = fileTree(dir: project.projectDir, includes: ['**/*.exec', '**/*.ec'])
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    doFirst {
+        new File("$buildDir/intermediates/classes/").eachFileRecurse { file ->
+            if (file.name.contains('$$')) {
+                file.renameTo(file.path.replace('$$', '$'))
+            }
+        }
+    }
+}

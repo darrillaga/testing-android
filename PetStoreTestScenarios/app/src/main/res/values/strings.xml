@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PetStoreTestScenarios</string>
+    <string name="generic_operation_error">Error</string>
+</resources>

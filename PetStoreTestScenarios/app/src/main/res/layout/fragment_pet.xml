@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Base.ContainerWithoutPadding">
+
+    <FrameLayout
+        android:id="@+id/errors_container"
+        android:layout_alignParentTop="true"
+        style="@style/Base.Wrapper.FullWidth"/>
+
+    <com.mooveit.ui.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_below="@id/errors_container"
+        style="@style/Base.ContainerWithoutPadding">
+
+        <Button
+            android:id="@+id/action_signature"
+            style="@style/Base.Wrapper"
+            android:text="@string/create_signature"/>
+
+    </com.mooveit.ui.SwipeRefreshLayout>
+
+</RelativeLayout>

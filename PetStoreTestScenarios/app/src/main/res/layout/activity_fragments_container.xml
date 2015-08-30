@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    style="@style/Base.ContainerWithoutPadding"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fragments_container"
+        style="@style/Base.ContainerWithoutPadding"/>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="mooveit.networkinglibrary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application android:allowBackup="true"
+                 android:name="com.mooveit.android.Application"
+                 android:label="@string/app_name">
+
+        <service
+            android:name="com.mooveit.android.services.NetworkingService"
+            android:exported="false" />
+
+        <service
+            android:name="com.mooveit.android.services.TasksService"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

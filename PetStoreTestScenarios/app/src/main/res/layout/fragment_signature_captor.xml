@@ -1,0 +1,96 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Base.ContainerWithoutPadding" >
+
+    <View
+        android:layout_height="@dimen/xxxsmall_spacing"
+        android:layout_above="@+id/signature_label"
+        android:layout_marginLeft="@dimen/medium_spacing"
+        android:layout_marginRight="@dimen/medium_spacing"
+        style="@style/Base.Wrapper.TopBottomPadded"
+        android:background="@color/grey" />
+
+    <TextView
+        android:id="@+id/signature_label"
+        android:layout_above="@+id/resume"
+        android:layout_marginBottom="@dimen/medium_spacing"
+        android:layout_marginTop="@dimen/medium_spacing"
+        style="@style/Base.Wrapper.FullWidth"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/small_text"
+        android:text="@string/client_signature" />
+
+    <LinearLayout
+        android:id="@+id/resume"
+        android:layout_above="@+id/bottom_stub_view"
+        style="@style/Base.Wrapper.FullWidth"
+        android:background="@color/blue"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/xsmall_spacing" >
+
+        <RelativeLayout style="@style/Base.Wrapper.FullWidth" >
+
+            <TextView
+                android:id="@+id/pet_name"
+                android:layout_toRightOf="@+id/pet_name_label"
+                style="@style/Base.Wrapper.FullWidth.LeftRightPadded"
+                android:textColor="@color/white"
+                android:textSize="@dimen/xxsmall_text" />
+
+            <TextView
+                android:id="@+id/pet_name_label"
+                android:layout_alignParentLeft="true"
+                style="@style/Base.Wrapper"
+                android:paddingLeft="@dimen/medium_spacing"
+                android:text="@string/pet_name"
+                android:textSize="@dimen/xxsmall_text"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottom_stub_view"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/zero"
+        android:layout_alignParentBottom="true" />
+
+    <com.mooveit.ui.FingerDrawer
+        android:id="@+id/signature_captor"
+        style="@style/Base.Container" />
+
+    <FrameLayout style="@style/Base.Wrapper.FullWidth" >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/signature_creator_action_bar"
+            style="@style/Base.Wrapper.FullWidth"
+            android:layout_height="?attr/actionBarSize"
+            android:contentInsetStart="@dimen/zero"
+            android:contentInsetLeft="@dimen/zero"
+            app:contentInsetLeft="@dimen/zero"
+            app:contentInsetStart="@dimen/zero"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <RelativeLayout
+                style="@style/Base.Wrapper.FullWidth" >
+
+                <ImageButton
+                    android:id="@+id/action_clean"
+                    android:layout_alignParentLeft="true"
+                    style="@style/Base.Wrapper"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/clear"
+                    android:src="@drawable/ic_action_bar_close_black" />
+
+                <ImageButton
+                    android:id="@+id/action_confirm"
+                    android:layout_alignParentRight="true"
+                    style="@style/Base.Wrapper"
+                    android:background="@drawable/dw_bg_rectangle_skyblue_button"
+                    android:contentDescription="@string/confirm"
+                    android:src="@drawable/send_button" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="mooveit.testblankactivity">
+
+    <application android:allowBackup="true">
+
+        <activity
+            android:name="mooveit.testblankactivity.TestBlankActivity">
+        </activity>
+    </application>
+
+</manifest>

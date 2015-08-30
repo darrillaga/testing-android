@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="api_path">http://petstore.swagger.io/v2</string>
+</resources>
